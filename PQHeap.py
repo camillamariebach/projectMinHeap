@@ -3,14 +3,21 @@ import math
 # find ud af hvordan man tager listen ind.
 
 def min_heapify(A, i):
+    print('I:' + str(A[i]))
     l = left(i)
+    if l < len(A)-1:
+        print('L: ' + str(A[l])) 
     r = right(i)
+    if r < len(A)-1:
+        print('r:' + str(A[r]))
     if l <= len(A)-1 and A[l] < A[i]:
         smallest = l
     else: 
         smallest = i
+    print('smallest1: ' + str(A[smallest]))
     if r <= len(A)-1 and A[r] < A[smallest]:
         smallest = r
+    print('smallest2: ' + str(A[smallest]))
     if smallest != i: 
         temp = A[smallest]
         A[smallest] = A[i]
@@ -61,7 +68,7 @@ def right(i):
     return 2*i + 2
 
 
-A = [2,7,24,6,7,3,-2,6,8,9,56,432,64,234,8,11224,9,6,0,356,234,54432]
+A = [56,64,234,8,11224,6,0,356,234,54432]
 
 build_min_heap(A)
 print(A)
