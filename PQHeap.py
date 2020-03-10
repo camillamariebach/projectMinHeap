@@ -80,10 +80,23 @@ def right(i):
     """Getter for the right child node of i"""
     return 2*i + 2
 
-A = sys.stdin.read()
+def toString(A):
+    str1 = ""
+    for ele in A:
+        str1 += ele
+    return str1
+
+A = []
+
+for line in sys.stdin:
+    for y in line.split():
+        A.append(int(y))
+
+
 build_min_heap(A)
+print("A: ")
 print(A)
-sys.stdout.write(A)
+sys.stdout.write(toString(A))
 
 #Stuff for testing
 #A = [56,64,234,8,11224,6,0,356,234,54432,34,56,1234,578,356,25,-5, 0, -124, -356, 3346]
