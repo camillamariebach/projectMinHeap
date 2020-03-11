@@ -1,7 +1,10 @@
-import math
-import random
-import sys
+# Tora De Boer
+# toboe19@sdu.student.dk
+# Camilla Marie Bach
+# cabac19@sdu.student.dk
 
+
+import math
 
 def min_heapify(A, i):
     """Method that restores the properties of a min heap by recursively calling itself on the list""" 
@@ -33,11 +36,11 @@ def extractMin(A):
     return min
 
 def heap_min(A):
-    """Method that returns the minimum value, stored in the node A[0]"""
+    """Method that returns the minimum value, stored in the rootnode"""
     return A[0]
 
 def insert(A, e):
-    """Method that inserts an element to the end of the list A, then swaps something around""" 
+    """Method that inserts an element to the end of the list A, then swaps indeces around to restore the heap""" 
     # Appends the element e on the last index in the list. 
     A.append(e)
     i = len(A)-1
@@ -55,18 +58,6 @@ def build_min_heap(A):
     # Calls min_heapify on the list from the middle index and down to the start. 
     for i in range(m, -1, -1):
         min_heapify(A, i)
-
-def heapsort(A):
-    """Method that manages the heap-sort algorithm by first building a heap, then outputs the list in sorted order and restores min heap properteis""" 
-    build_min_heap(A)
-    end = len(A)-1
-    # Calls min_heapify on the indeces from the end of the list to the start.
-    # Sets the value of index 0 to the value if i. 
-    for i in range(end, 1, -1): 
-        temp = A[0]
-        A[0] = A[i]
-        A[i] = temp
-        min_heapify(A, 0)
  
 def parent(i):
     """Getter for the parent node of i""" 
@@ -79,28 +70,3 @@ def left(i):
 def right(i):
     """Getter for the right child node of i"""
     return 2*i + 2
-
-def toString(A):
-    str1 = ""
-    for ele in A:
-        str1 += ele
-    return str1
-
-A = []
-
-for line in sys.stdin:
-    for y in line.split():
-        A.append(int(y))
-
-
-build_min_heap(A)
-print("A: ")
-print(A)
-sys.stdout.write(toString(A))
-
-#Stuff for testing
-#A = [56,64,234,8,11224,6,0,356,234,54432,34,56,1234,578,356,25,-5, 0, -124, -356, 3346]
-#B = []
-#for i in range(200):
-#    b = random.randint(-1000, 1000)
-#    B.append(b)
