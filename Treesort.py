@@ -1,18 +1,18 @@
 import sys
 import DictBinTree
 
-db = []
+T = []
 
 for line in sys.stdin:
-    DictBinTree.insert(db,int(line))
+    DictBinTree.insert(T,int(line))
 
-print(DictBinTree.orderedTraversal(db))
+print(DictBinTree.orderedTraversal(T))
 
 def orderedTraversal(T):
     inorderTreewalk(T.root)
 
-def inorderTreewalk(x):
-    if x != None: 
-        inorderTreewalk(x[1])
-        print(x[0])
-        inorderTreewalk(x[2])
+def inorderTreewalk(T):
+    if T != None: 
+        inorderTreewalk(T[1])
+        print(T[0])
+        inorderTreewalk(T[2])
