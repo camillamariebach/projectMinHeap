@@ -6,7 +6,6 @@
 """
 
 def search(T, k):
-    #Skal search vaere en boolean?
     found = False
     if k==T[0]:
         found = True
@@ -26,21 +25,23 @@ def insert(T, k):
     y = None
     x = T[0]
     k = [k, None, None]
+    print('T:')
+    print(T)
     
     while x != None:
         y = x
-        if k[0] < x[0[0]]:
-            x = x[0[1]]
-        else: x = x[0[2]]
+        if k < T[0]:
+            x = T[1]
+        else: x = T[2]
         
     #!!! hvad er p??
     #k.p = y
     
     if y == None:
-        T[0]=k[0]
-    elif k[0] < y[0]:
-        y[1] = k[0]
-    else: y[2] = k[0]
+        T[0]=k
+    elif k < y[0]:
+        y[1] = k
+    else: y[2] = k
     
 def orderedTraversal(T):
     inorderTreewalk(T[0])
