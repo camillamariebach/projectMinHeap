@@ -21,25 +21,23 @@ def iterativeTreeSearch (T, k):
         else: T = T[2]
     return T
 
-def insert(T, k):
+def tinsert(T, k):
     y = None
     x = T[0]
     k = [k, None, None]
-    print('T:')
-    print(T)
     
     while x != None:
         y = x
-        if k < T[0]:
-            x = T[1]
-        else: x = T[2]
+        if k[0] < T[0][0]:
+            x = T[0][1]
+        else: x = T[0][2]
         
     #!!! hvad er p??
     #k.p = y
     
     if y == None:
         T[0]=k
-    elif k < y[0]:
+    elif k[0] < y[0]:
         y[1] = k
     else: y[2] = k
     
@@ -52,4 +50,15 @@ def inorderTreewalk(T):
         inorderTreewalk(T[1])
         orderedlist.append(T[0])
         inorderTreewalk(T[2])
+
+def insert(T, k):    
+    k = [k, None, None]
+
+    while T[0] != None:
+        if k < T[0]:
+            insert(T[0][1], k)
+        elif k > T[0]:
+            insert(T[0][2], k)
+    T[0] = k
+    
     
