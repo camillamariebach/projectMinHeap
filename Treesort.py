@@ -1,18 +1,16 @@
+"""
+@author: Tora de Boer
+@author: toboe@student.sdu.dk
+@author: Camilla Marie Bach
+@author: cabac19@student.sdu.dk
+"""
+
 import sys
 import DictBinTree
 
-T = []
+T = [None]
 
 for line in sys.stdin:
     DictBinTree.insert(T,int(line))
 
 print(DictBinTree.orderedTraversal(T))
-
-def orderedTraversal(T):
-    inorderTreewalk(T.root)
-
-def inorderTreewalk(T):
-    if T != None: 
-        inorderTreewalk(T[1])
-        print(T[0])
-        inorderTreewalk(T[2])
