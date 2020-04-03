@@ -1,3 +1,7 @@
+"""
+Camilla Marie Bach - cabac19@student.sdu.dk
+Tora de Boer - toboe19@student.sdu.dk
+"""
 """Class dictBinTree"""
 from binNode import BinNode
 
@@ -9,21 +13,18 @@ class DictBinTree():
 
     """Methods for class dictBinTree"""
 
+    def inSearch(x, k, b):
+        if k == x.key:
+            b = True
+        elif k < x.key:
+            DictBinTree.inSearch(x.left, k, b)
+        else:
+            DictBinTree.inSearch(x.right, k, b)
+        return b
+        
     def search(T, k):
-        found = False
-        if k == T.root:
-            found = True
-        if k < T.root:
-            search(T.root.left, k)
-        else: search(T.root.right, k)
-        return found 
-
-    def iterativeTreeSearch (T, k):
-        while T[0] != None and k != T[0]:
-            if k < T[0]:
-                T = T[1]
-            else: T = T[2]
-        return T
+        b = False
+        print(DictBinTree.inSearch(T.root, k, b))
 
     def insert(T, k):
         y = None

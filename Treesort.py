@@ -14,5 +14,4 @@ for line in sys.stdin:
     DictBinTree.insert(T,int(line))
 
 DictBinTree.orderedTraversal(T)
-
-#DictBinTree.inorderTreewalk()
+DictBinTree.search(T, 0)
