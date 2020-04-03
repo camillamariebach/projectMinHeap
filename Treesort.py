@@ -6,11 +6,13 @@
 """
 
 import sys
-import DictBinTree
+from ClassDictBinTree import DictBinTree
 
-T = [None]
+T = DictBinTree()
 
 for line in sys.stdin:
     DictBinTree.insert(T,int(line))
 
-print(DictBinTree.orderedTraversal(T))
+DictBinTree.orderedTraversal(T)
+
+#DictBinTree.inorderTreewalk()

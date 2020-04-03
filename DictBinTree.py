@@ -53,7 +53,7 @@ def inorderTreewalk(T):
 def tinsert(T, k):    
     k = [k, None, None]
 
-    while T[0] != None:
+    if T[0] != None:
         if k < T[0]:
             insert(T[0][1], k)
         elif k > T[0]:
